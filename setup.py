@@ -62,6 +62,7 @@ setup(
     keywords="pagination,django",
     url="https://github.com/pydanny/dj-pagination",
     test_suite="dj_pagination.tests.runner.runtests",
+    tests_require=['mock'],
     license="BSD",
     packages=find_packages(),
     classifiers=[

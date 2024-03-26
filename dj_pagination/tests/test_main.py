@@ -29,6 +29,8 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+import mock
+
 from django.core.paginator import Paginator
 from django.http import HttpRequest as DjangoHttpRequest
 from django.template import Template, Context
@@ -424,7 +426,8 @@ class MiddlewareTestCase(SimpleTestCase):
     """
 
     def test_get_page_in_request(self):
-        middleware = PaginationMiddleware()
+        get_response = mock.MagicMock()
+        middleware = PaginationMiddleware(get_response)
         request = DjangoHttpRequest()
         middleware.process_request(request)
         self.assertEqual(request.page(""), 1)
