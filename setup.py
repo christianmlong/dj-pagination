@@ -36,19 +36,7 @@ import sys
 
 os.environ["DJANGO_SETTINGS_MODULE"] = "dj_pagination.tests.settings"
 
-version = "2.4.0"
-
-if sys.argv[-1] == "publish":
-    os.system("pip install -U twine wheel")
-    os.system("python setup.py sdist bdist_wheel")
-    os.system("twine upload dist/*")
-    sys.exit()
-
-if sys.argv[-1] == "tag":
-    print("Tagging the version on github:")
-    os.system("git tag -a %s -m 'version %s'" % (version, version))
-    os.system("git push --tags")
-    sys.exit()
+version = "2.5.0patch1"
 
 setup(
     name="dj-pagination",
@@ -62,6 +50,7 @@ setup(
     keywords="pagination,django",
     url="https://github.com/pydanny/dj-pagination",
     test_suite="dj_pagination.tests.runner.runtests",
+    tests_require=['mock'],
     license="BSD",
     packages=find_packages(),
     classifiers=[
