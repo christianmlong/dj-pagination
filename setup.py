@@ -36,7 +36,7 @@ import sys
 
 os.environ["DJANGO_SETTINGS_MODULE"] = "dj_pagination.tests.settings"
 
-version = "2.5.0patch1"
+version = "2.5.0.patch1"
 
 setup(
     name="dj-pagination",
